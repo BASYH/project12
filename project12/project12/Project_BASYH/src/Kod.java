@@ -32,7 +32,7 @@ private JLabel label16 = new JLabel("Руководитель: Казанцев А.В.");
 private JLabel label2 = new JLabel("Шаяхметов Руслан Динарович ");
 private JLabel label3 = new JLabel("");
 private JLabel label4 = new JLabel("Биненда Александра Дмитриевна ");
-private JLabel label5 = new JLabel("");
+private JLabel label5 = new JLabel("binendaa@yandex.ru");
 private JLabel label6 = new JLabel("Ярулина Александра Игоревна ");
 private JLabel label7 = new JLabel("");
 private JLabel label8 = new JLabel("Ахметшин Радмир Раилевич ");
@@ -43,7 +43,7 @@ private JLabel label10 = new JLabel();
 private JLabel label13 = new JLabel();
 private JLabel website = new JLabel();
 private JLabel label17 = new JLabel("Кнопка информации добавлена");
-
+private JLabel label18 = new JLabel("Git – это распределенная система управления версиями.");
 public Kod() {
 super("Simple Example");
 this.setBounds(300,600,420,300);
@@ -51,7 +51,7 @@ this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 setContentPane(new BgPanel());
 button.addActionListener(new ButtonEventListener());
 Container container = this.getContentPane();
-container.setLayout(new GridLayout(23,2,0,0));
+container.setLayout(new GridLayout(24,2,0,0));
 container.add(label14);
 container.add(label15);
 container.add(label);
@@ -74,6 +74,7 @@ container.add(button3);
 container.add(label17);
 container.add(label13);
 container.add(label16);
+container.add(label18);
 
 website.setText("<html> ссылка : "
 + "<a href=\"\">АСУ УГАТУ</a></html>");
@@ -91,6 +92,13 @@ public void actionPerformed(ActionEvent p) {
 snakeFrame.setVisible(true);
 }
 });
+label18.setVisible(false);
+button3.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent p) {
+label18.setVisible(true);
+}
+});
+
 ActionListener actionListener = new TestActionListener();
 button2.addActionListener(actionListener);
 
@@ -111,7 +119,8 @@ label10.setText("Введено неверное значение");
 public class TestActionListener implements ActionListener {
 public void actionPerformed(ActionEvent r) {
 try {
-int b = 60*Integer.parseInt(input.getText())*200;
+int b =
+60*Integer.parseInt(input.getText())*200;
 label10.setText("Объем параллелепипеда равен: "+b+" куб. см.");
 }
 catch (NumberFormatException a ) {
@@ -122,7 +131,7 @@ label10.setText("Введено неверное значение");
 private void goWebsite(JLabel website) {
 website.addMouseListener(new MouseAdapter() {
 @Override
- 
+
 public void mouseClicked(MouseEvent e) {
 try {
 Desktop.getDesktop().browse(new URI("http://asu.ugatu.ac.ru/"));
